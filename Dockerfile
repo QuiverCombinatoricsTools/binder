@@ -28,11 +28,6 @@ COPY notebooks/ ${HOME}/
 RUN chown -R ${NB_USER}:${NB_USER} ${HOME}
 
 # ---------------------------
-# IMPORTANT: remove broken python kernel (optional)
-# ---------------------------
-RUN jupyter kernelspec remove python3 -f || true
-
-# ---------------------------
 # FIX: register Sage kernel properly (NO ipykernel install)
 # ---------------------------
 RUN mkdir -p /usr/local/share/jupyter/kernels && \
