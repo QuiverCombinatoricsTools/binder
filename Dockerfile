@@ -26,12 +26,18 @@ USER root
 # Remove python3
 RUN jupyter kernelspec remove python3 -f || true
 
-# Switch to the user
+USER root
+RUN jupyter kernelspec remove python3 -f || true
+
 USER ${NB_USER}
 
-# Link Sage kernel properly
-RUN ln -s /sage/venv/share/jupyter/kernels/sagemath \
-    /home/${NB_USER}/.local/share/jupyter/kernels/sagemath
+RUN /sage/sage -python -m pip install ipykernel
+
+RUN /sage/sage -python -m ipykernel install \
+    --user \
+    --name sagemath \
+    --display-name "SageMath 10.3"
+
 
 # Install QuiverTools and QuiverCombinatoricsTools
 RUN /sage/sage --pip install git+https://github.com/QuiverTools/QuiverTools.git --user
