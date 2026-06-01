@@ -18,3 +18,14 @@ We were supervised by Gwyn Bellamy (University of Glasgow), as part of an [AGQ](
 # Instructions
 
 To run this binder, go [here](https://mybinder.org/v2/gh/QuiverCombinatoricsTools/binder/HEAD).
+
+# How to cite QuiverCombinatoricsTools
+
+If you have used this code in any way, please consider citing it in the following way.
+```
+@software{quivercombinatoricstools,
+  author = {Caba, Tudor-Ioan and Lam, Mia and Roth, Emanuel},
+  title = {QuiverCombinatoricsTools},
+  url = {https://quivercombinatoricstools.github.io},
+}
+```
