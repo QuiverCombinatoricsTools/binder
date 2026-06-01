@@ -34,5 +34,8 @@ RUN /sage/sage --pip install git+https://github.com/QuiverCombinatoricsTools/Qui
 RUN /sage/sage --pip install dot2tex --user
 RUN /sage/sage --pip install graphviz --user
 
+# Remove incorrect python kernel
+RUN jupyter kernelspec remove python3 -f || true
+
 # Start in the home directory of the user
 WORKDIR /home/${NB_USER}
