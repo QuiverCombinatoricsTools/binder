@@ -29,9 +29,6 @@ RUN jupyter kernelspec remove python3 -f || true
 # Switch to the user
 USER ${NB_USER}
 
-# Ensure proper user kernel directory
-RUN mkdir -p /home/${NB_USER}/.local/share/jupyter/kernels
-
 # Link Sage kernel properly
 RUN ln -s /sage/venv/share/jupyter/kernels/sagemath \
     /home/${NB_USER}/.local/share/jupyter/kernels/sagemath
