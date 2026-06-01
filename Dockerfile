@@ -21,12 +21,20 @@ RUN apt install -y git
 COPY notebooks/* ${HOME}/
 RUN chown -R ${NB_USER}:${NB_USER} ${HOME}
 
+USER root
+
+# Remove python3
+RUN jupyter kernelspec remove python3 -f || true
+
 # Switch to the user
 USER ${NB_USER}
 
-# Install Sage kernel to Jupyter
-RUN mkdir -p $(jupyter --data-dir)/kernels
-RUN ln -s /sage/venv/share/jupyter/kernels/sagemath $(jupyter --data-dir)/kernels
+# Ensure proper user kernel directory
+RUN mkdir -p /home/${NB_USER}/.local/share/jupyter/kernels
+
+# Link Sage kernel properly
+RUN ln -s /sage/venv/share/jupyter/kernels/sagemath \
+    /home/${NB_USER}/.local/share/jupyter/kernels/sagemath
 
 # Install QuiverTools and QuiverCombinatoricsTools
 RUN /sage/sage --pip install git+https://github.com/QuiverTools/QuiverTools.git --user
@@ -34,8 +42,6 @@ RUN /sage/sage --pip install git+https://github.com/QuiverCombinatoricsTools/Qui
 RUN /sage/sage --pip install dot2tex --user
 RUN /sage/sage --pip install graphviz --user
 
-# Remove incorrect python kernel
-RUN jupyter kernelspec remove python3 -f || true
 
 # Start in the home directory of the user
 WORKDIR /home/${NB_USER}
