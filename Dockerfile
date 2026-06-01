@@ -28,8 +28,9 @@ USER ${NB_USER}
 RUN mkdir -p $(jupyter --data-dir)/kernels
 RUN ln -s /sage/venv/share/jupyter/kernels/sagemath $(jupyter --data-dir)/kernels
 
-# Install QuiverTools
+# Install QuiverTools and QuiverCombinatoricsTools
 RUN /sage/sage --pip install git+https://github.com/QuiverTools/QuiverTools.git --user
+RUN /sage/sage --pip install git+https://github.com/QuiverCombinatoricsTools/QuiverCombinatoricsTools.git --user
 
 # Start in the home directory of the user
 WORKDIR /home/${NB_USER}
