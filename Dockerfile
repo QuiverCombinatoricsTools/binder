@@ -16,10 +16,11 @@ ENV HOME=/home/${NB_USER}
 
 RUN adduser --disabled-password --gecos "Default user" --uid ${NB_UID} ${NB_USER}
 
-# ---------------------------
 # System dependencies
-# ---------------------------
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    git \
+    graphviz \
+    && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------
 # Notebook files
