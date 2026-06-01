@@ -17,4 +17,4 @@ We were supervised by Gwyn Bellamy (University of Glasgow), as part of an [AGQ](
 
 # Instructions
 
-To run this binder, go [here](https://github.com/QuiverCombinatoricsTools/binder).
+To run this binder, go [here](https://mybinder.org/v2/gh/QuiverCombinatoricsTools/binder/HEAD).
