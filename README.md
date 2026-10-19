@@ -8,7 +8,7 @@ This repository is a *Binder repository* for *QuiverCombinatoricsTools*, which g
 # Authors
 
 * Tudor-Ioan Caba (University of Edinburgh)
-* Mia Lam (University of Edinburgh)
+* [Mia Lam](https://ml975.user.srcf.net/) (University of Edinburgh)
 * [Emanuel Roth](https://emanuel-roth.github.io/) (University of Edinburgh)
 
 We were supervised by [Gwyn Bellamy](https://sites.google.com/view/gwynbellamy/home) (University of Glasgow), as part of an [AGQ](https://www.agq-cdt.org/) computing project. The project is licensed under the *MIT license*. We are open to improvements and suggestions.
